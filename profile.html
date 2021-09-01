@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="Favicon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+    <title>User Profile</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
+        <div class="container">
+        <img class="img-fluid" style="max-width: 85px;" src="image/pccoe_logo.png"> <a class="navbar-brand" href="#">PCCOE</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <form id="logout" name="logout" method="post">
+                            <input type="hidden" id="device" class="form-control" name="login_device" value="web" required style="display: none;">
+                            
+                        <button type="button" id="logoutbutton" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i>&nbsp; Logout</button>
+                        </form>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container"><br>
+        <div id="loading">
+            <img id="loading-image" src="image/spinner.gif" alt="Loading..." />
+        </div>
+        <div class="row my-2">
+            <div class="col-lg-8 order-lg-2">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Edit</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" data-target="#edit_resume" data-toggle="tab" class="nav-link">Edit Resume</a>
+                    </li>
+                </ul>
+
+
+                <div class="tab-content py-4">
+                <!--User Profile Stats-->
+                    <div class="tab-pane active" id="profile">
+                        <h5 class="mb-3">User Profile</h5>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3>Basic Details</h3>
+                                <p>
+                                    <table class="table table-striped table-borderless">
+                                        <tbody>
+                                                <tr>
+                                                <th scope="row">Scholar Number</th>
+                                                <td id="d_schno"></td>
+                                                </tr>
+                                                <tr>
+                                                <th scope="row">PNR Number</th>
+                                                <td id="d_pnrno"></td>
+                                                </tr>
+                                                <tr>
+                                                <th scope="row">Roll Number</th>
+                                                <td id="d_rollno"></td>
+                                                </tr>
+                                                <tr>
+                                                <th scope="row">Course Name</th>
+                                                <td id="d_coursename"></td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                <th scope="row">Full Name</th>
+                                                <td id="d_fullname"></td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                <th scope="row">Gender</th>
+                                                <td id="d_gender"></td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                <th scope="row">College Name</th>
+                                                <td id="d_clgname"></td>
+                                                </tr>
+                                            
+                                                <tr>
+                                                <th scope="row">Year of Completion</th>
+                                                <td id="d_yearofcomplete"></td>
+                                                </tr>
+                                            
+                                    </tbody>
+                                    </table>
+                                </p>
+                                <hr>
+                                <div id="other_d" class="collapse">
+                                <h3>Other Details</h3>
+                                <p>
+                                    <table class="table table-striped table-borderless">
+                                        <tbody>
+                                            <tr>
+                                            <th scope="row">Mobile Number</th>
+                                            <td id="d_mobileno"></td>
+                                            </tr>
+                                            <tr>
+                                            <th scope="row">Email Address</th>
+                                            <td id="d_email"></td>
+                                            </tr>
+                                            <tr>
+                                            <th scope="row">Father's Email Address</th>
+                                            <td id="d_fatheremail"></td>
+                                            </tr>
+                                            <tr>
+                                            <th scope="row">Father's Phone Number</th>
+                                            <td id="d_fathernumber"></td>
+                                            </tr>
+                                            <tr>
+                                            <th scope="row">Father's Profession</th>
+                                            <td id="d_profession"></td>
+                                            </tr>
+                                            <tr>
+                                            <th scope="row">Date Of Birth</th>
+                                            <td id="d_dateofbirth"></td>
+                                            </tr>
+                                            <tr>
+                                            <th scope="row">Permanent Address</th>
+                                            <td id="d_peraddress"></td>
+                                            </tr>
+                                            <tr>
+                                            <th scope="row">Local Address</th>
+                                            <td id="d_localaddress"></td>
+                                            </tr>
+                                            <tr>
+                                            <th scope="row">District</th>
+                                            <td id="d_district"></td>
+                                            </tr>
+                                            <tr>
+                                            <th scope="row">Home District</th>
+                                            <td id="d_homedistrict"></td>
+                                            </tr>
+                                            <tr>
+                                            <th scope="row">State</th>
+                                            <td id="d_state"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </p>
+                                </div>
+                                <button type="button" class="btn btn-outline-info" data-toggle="collapse" data-target="#other_d">Toggle Other Details</button>
+                                <hr>
+                                <div id="academic_d" class="collapse">
+                                <h3>Academic Details</h3>
+                                <p>
+                                    <table class="table table-striped table-borderless">
+    
+                                        <tbody>
+                                        <tr>
+                                        <th scope="row">SSC %</th>
+                                        <td id="d_sscper"></td>
+                                        </tr>
+                                        <th scope="row">SSC Board & Year</th>
+                                        <td id="d_ssc"></td>
+                                            <tr>
+                                        <th scope="row">HSC %</th>
+                                        <td id="d_hscper"></td>
+                                        </tr>
+                                            <tr>
+                                        <th scope="row">HSC Board & HSC Year</th>
+                                        <td id="d_hsc"></td>
+                                            </tr>
+                                        <tr>
+                                        <th scope="row">Graduation</th>
+                                        <td id="d_gradmarks"></td>
+                                            </tr>
+                                        <tr>
+                                        <th scope="row">Graduation College and Year</th>
+                                        <td id="d_grad"></td>
+                                            </tr>
+                                        <tr>
+                                        <th scope="row">First Year Sem 1 SGPA</th>
+                                        <td id="d_fysem1sgpa"></td>
+                                            </tr>
+                                        <tr>
+                                        <th scope="row">First Year Sem 1 %</th>
+                                        <td id="d_fysem1per"></td>
+                                            </tr>
+                                        <tr>
+                                        <th scope="row">First Year Sem 2 SGPA</th>
+                                        <td id="d_fysem2sgpa"></td>
+                                            </tr>
+                                        <tr>
+                                        <th scope="row">First Year Sem 2 %</th>
+                                        <td id="d_fysem2per"></td>
+                                            </tr>
+                                        <tr>
+                                        <th scope="row">Second Year Sem 1 SGPA</th>
+                                        <td id="d_sysem1sgpa"></td>
+                                            </tr>
+                                        <tr>
+                                        <th scope="row">Second Year Sem 1 %</th>
+                                        <td id="d_sysem1per"></td>
+                                            </tr>
+                                        <tr>
+                                        <th scope="row">Second Year Sem 2 SGPA</th>
+                                        <td id="d_sysem2sgpa"></td>
+                                            </tr>
+                                        <tr>
+                                        <th scope="row">Second Year Sem 2 %</th>
+                                        <td id="d_sysem2per"></td>
+                                            </tr>
+                                        <tr>
+                                        <th scope="row">Third Year Sem 1 SGPA</th>
+                                        <td id="d_tysem1sgpa"></td>
+                                            </tr>
+                                        <tr>
+                                        <th scope="row">Third Year Sem 1 %</th>
+                                        <td id="d_tysem1per"></td>
+                                            </tr>
+                                        <tr>
+                                        <th scope="row">Third Year Sem 2 SGPA</th>
+                                        <td id="d_tysem2sgpa"></td>
+                                            </tr>
+                                        <tr>
+                                        <th scope="row">Third Year Sem 2 %</th>
+                                        <td id="d_tysem2per"></td>
+                                            </tr>
+                                        <tr>
+                                        <th scope="row">Aggregate CGPA</th>
+                                        <td id="d_aggcgpa"></td>
+                                            </tr>
+                                        <tr>
+                                        <th scope="row">Aggregate %</th>
+                                        <td id="d_aggper"></td>
+                                            </tr>
+                                        <tr>
+                                        <th scope="row">Live Backlog</th>
+                                        <td id="d_livebacklog"></td>
+                                            </tr>
+                                        <tr>
+                                        <th scope="row">Dead Backlog</th>
+                                        <td id="d_deadbacklog"></td>
+                                            </tr>
+                                        <tr>
+                                        <th scope="row">No. of Year Drops</th>
+                                        <td id="d_noofyd"></td>
+                                            </tr>
+                                        <tr>
+                                        <th scope="row">Resume</th>
+                                        <td><a href="#" target="_blank" id="d_userresume"></a></td>
+                                            </tr>
+                                    </tbody>
+                                    </table>
+
+                                </p>
+                            </div>
+                            <button type="button" class="btn btn-outline-info" data-toggle="collapse" data-target="#academic_d">Toggle Academic Details</button>
+                            </div>
+                        </div>
+                        <!--/row-->
+                    </div>
+                    <!--Edit Profile Stats-->
+                    <div class="tab-pane" id="edit">
+                    <form role="form" method="post" id="update_profile">
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Full Name</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="text" maxlength="50" name="full_name" id="full_name" placeholder="Full Name">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Course Name</label>
+                                <div class="col-lg-9">
+                                      <select class="form-control" name="coursename" id="coursename">
+                                        <option value="">Select Course</option>
+                                        <option value="BCA">BCA</option>
+                                        <option value="MCA">MCA</option>
+                                        <option value="B.Sc">B.Sc Computer Science</option>
+                                        <option value="B.E Computer Science">B.E Computer Engineering</option>
+                                        <option value="M.Sc">M.Sc Computer Science</option>
+                                        <option value="M.E Computer Science">M.E Computer Engineering</option>
+                                        <option value="Diploma in Computer Science">Diploma in Computer Engineering</option>
+                                        <option value="Other Computer Cources">Other Computer Cources</option>
+                                        </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">College Roll No.</label>
+                                <div class="col-lg-4">
+                                    <input class="form-control" type="number" maxlength="2" name="rollno" id="rollno" placeholder="College Roll No.">
+                                </div>
+                                <div class="col-lg-4">
+                                    <input class="form-control" type="number" minlength="10" max="15" name="pnr_no" id="pnr_no" placeholder="PNR Number">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Year Of Completion</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="number" min="2007" max="2100" name="yearofcomplete" id="yearofcomplete" placeholder="Year Of Completion" value="">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">College Name</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="text" name="clgname" id="clgname" pattern="[a-zA-Z]+" minlength="4" maxlength="30" placeholder="College Name">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">SSC Details</label>
+                                <div class="col-lg-3">
+                                    <input class="form-control" type="number" placeholder="SSC %" min="40" max="100" name="ssc" id="ssc">
+                                </div>
+                                <div class="col-lg-3">
+                                    <input class="form-control" type="text" pattern="[a-zA-Z]+" minlength="4" maxlength="10" placeholder="SSC Board" name="sscboard" id="sscboard">
+                                </div>
+                                <div class="col-lg-3">
+                                    <input class="form-control" type="number" placeholder="SSC Year" name="sscyear" id="sscyear" min="2007" max="2100">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">HSC Details</label>
+                                <div class="col-lg-3">
+                                    <input class="form-control" type="number" placeholder="HSC %" min="40" max="100" name="hsc" id="hsc">
+                                </div>
+                                <div class="col-lg-3">
+                                    <input class="form-control" type="text" pattern="[a-zA-Z]+" minlength="4" maxlength="10" placeholder="HSC Board" name="hscboard" id="hscboard">
+                                </div>
+                                <div class="col-lg-3">
+                                    <input class="form-control" type="number" placeholder="HSC Year" name="hscyear" id="hscyear" min="2007" max="2100">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Graduation Details</label>
+                                <div class="col-lg-3">
+                                    <input class="form-control" type="number" placeholder="Graduation %" min="40" max="100" name="graduation" id="graduation">
+                                </div>
+                                <div class="col-lg-3">
+                                    <input class="form-control" type="text" placeholder="Graduation University" pattern="[a-zA-Z]+" minlength="4" maxlength="30" name="gradclg" id="gradclg">
+                                </div>
+                                <div class="col-lg-3">
+                                    <input class="form-control" type="number" placeholder="Graduation Year" name="gradyear" id="gradyear" min="2012" max="2100">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">First Year Details</label>
+                                <div class="col-lg-4">
+                                    <input class="form-control" type="number" placeholder="First Year Sem 1 %" min="30" max="100" name="fysem1per" id="fysem1per">
+                                </div>
+                                <div class="col-lg-4">
+                                    <input class="form-control" type="number" min="3" max="10" placeholder="First Year Sem 1 SGPA" name="fysem1sgpa" id="fysem1sgpa">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label"></label>
+                                <div class="col-lg-4">
+                                    <input class="form-control" type="number" placeholder="First Year Sem 2 %" min="30" max="100" name="fysem2per" id="fysem2per">
+                                </div>
+                                <div class="col-lg-4">
+                                    <input class="form-control" type="number" min="3" max="10" placeholder="First Year Sem 2 SGPA" name="fysem2sgpa" id="fysem2sgpa">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Second Year Details</label>
+                                <div class="col-lg-4">
+                                    <input class="form-control" type="number" placeholder="Second Year Sem 1 %" min="30" max="100" name="sysem1per" id="sysem1per">
+                                </div>
+                                <div class="col-lg-4">
+                                    <input class="form-control" type="number" min="3" max="10" placeholder="Second Year Sem 1 SGPA" name="sysem1sgpa" id="sysem1sgpa">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label"></label>
+                                <div class="col-lg-4">
+                                    <input class="form-control" type="number" placeholder="Second Year Sem 2 %" min="30" max="100" name="sysem2per" id="sysem2per">
+                                </div>
+                                <div class="col-lg-4">
+                                    <input class="form-control" type="number" min="3" max="10" placeholder="Second Year Sem 2 SGPA" name="sysem2sgpa" id="sysem2sgpa">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Third Year Details</label>
+                                <div class="col-lg-4">
+                                    <input class="form-control" type="number" placeholder="Third Year Sem 1 %" min="30" max="100" name="tysem1per" id="tysem1per">
+                                </div>
+                                <div class="col-lg-4">
+                                    <input class="form-control" type="number" min="3" max="10" placeholder="Third Year Sem 1 SGPA" name="tysem1sgpa" id="tysem1sgpa">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label"></label>
+                                <div class="col-lg-4">
+                                    <input class="form-control" type="number" placeholder="Third Year Sem 2 %" min="40" max="100" name="tysem2per" id="tysem2per">
+                                </div>
+                                <div class="col-lg-4">
+                                    <input class="form-control" type="number" min="3" max="10" placeholder="Third Year Sem 2 SGPA" name="tysem2sgpa" id="tysem2sgpa">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Combined College Details</label>
+                                <div class="col-lg-4">
+                                    <input class="form-control" type="number" placeholder="Combined %" min="30" max="100" name="aggper" id="aggper">
+                                </div>
+                                <div class="col-lg-4">
+                                    <input class="form-control" type="number" min="3" max="10" placeholder="Combined SGPA" name="aggcgpa" id="aggcgpa">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Live Backlog</label>
+                                <div class="col-lg-9">
+                                    <select class="form-control" name="livebacklog" id="livebacklog">
+                                        <option value="">Select Number of Live Backlogs</option>
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Dead Backlogs</label>
+                                <div class="col-lg-9">
+                                     <select class="form-control" name="deadbacklog" id="deadbacklog">
+                                        <option value="">Select Number of Dead Backlogs</option>
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        </select>
+                                    
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Number of Year Drops</label>
+                                <div class="col-lg-9">
+                                     <select class="form-control" name="noofyd" id="noofyd">
+                                        <option value="">Select Number of Yeardrops</option>
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Mobile Number</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="number" name="mobilenumber" id="mobilenumber" minlength="10" maxlength="10" placeholder="Mobile No.">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Father's Profession</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="text" pattern="[a-zA-Z]+" minlength="4" maxlength="35" name="profession" id="profession" placeholder="Father's Profession">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Company where your Father Works</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="text" pattern="[a-zA-Z]+" minlength="4" maxlength="35" name="company_name" id="company_name" placeholder="Company Name">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Father's Email Address</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="father_email"  id="father_email" placeholder="Father's Email">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Father's Phone No.</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" type="number" name="father_number" id="father_number" minlength="10" maxlength="10" placeholder="Father's Phone No.">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Local Address</label>
+                                <div class="col-lg-9">
+                                    <textarea class="form-control" type="text" name="localaddress" id="localaddress" placeholder="Local Address" maxlength="200"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Permanent Address</label>
+                                <div class="col-lg-9">
+                                    <textarea class="form-control" type="text" name="peraddress" id="peraddress" placeholder="Permanent Address" maxlength="200"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label"></label>
+                                <div class="col-lg-4">
+                                    <input class="form-control" type="text" name="district" id="district" placeholder="District" maxlength="25">
+                                </div>
+                                <div class="col-lg-4">
+                                    <input class="form-control" type="text" name="hdistrict" id="hdistrict" placeholder="Home District" maxlength="25">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">State</label>
+                                <div class="col-lg-9">
+                                    <select class="form-control" name="state" id="state">
+                                        <option value="">Select State</option>
+                                        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                        <option value="Assam">Assam</option>
+                                        <option value="Bihar">Bihar</option>
+                                        <option value="Chandigarh">Chandigarh</option>
+                                        <option value="Chhattisgarh">Chhattisgarh</option>
+                                        <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+                                        <option value="Daman and Diu">Daman and Diu</option>
+                                        <option value="Delhi">Delhi</option>
+                                        <option value="Goa">Goa</option>
+                                        <option value="Gujarat">Gujarat</option>
+                                        <option value="Haryana">Haryana</option>
+                                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                        <option value="Jharkhand">Jharkhand</option>
+                                        <option value="Karnataka">Karnataka</option>
+                                        <option value="Kerala">Kerala</option>
+                                        <option value="Lakshadweep">Lakshadweep</option>
+                                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                        <option value="Maharashtra">Maharashtra</option>
+                                        <option value="Manipur">Manipur</option>
+                                        <option value="Meghalaya">Meghalaya</option>
+                                        <option value="Mizoram">Mizoram</option>
+                                        <option value="Nagaland">Nagaland</option>
+                                        <option value="Orissa">Orissa</option>
+                                        <option value="Pondicherry">Pondicherry</option>
+                                        <option value="Punjab">Punjab</option>
+                                        <option value="Rajasthan">Rajasthan</option>
+                                        <option value="Sikkim">Sikkim</option>
+                                        <option value="Tamil Nadu">Tamil Nadu</option>
+                                        <option value="Tripura">Tripura</option>
+                                        <option value="Uttaranchal">Uttaranchal</option>
+                                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                        <option value="West Bengal">West Bengal</option>
+                                        </select>
+                                </div>
+                            </div>
+                            <input type="text" id="device" class="form-control" name="login_device" value="web" required style="display: none;">
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label"></label>
+                                <div class="col-lg-9">
+                                    <button type="reset" class="btn btn-secondary">Reset</button>
+                                    <button type="button" class="btn btn-info" id="u_submit">Save Changes</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane" id="edit_resume">
+                        <span id="resume_url_outer"></span>
+                        <span id="resume_url_inner"><span style="color:gray">No Resume Found</span></span>
+                        <br><br>
+                        <h3 class="mt-2">Upload Resume</h3>
+                    <form name="s_resume" method="post" id="s_resume_update">
+                        <label class="custom-file">
+                            <input type="file" name="user_resume" id="profile_user_resume_right" accept="application/pdf" style="display:none" />
+                            <input type="hidden" id="device" class="form-control" name="login_device" value="web" required style="display: none;">
+                            <span class="custom-file-control btn btn-light">Choose file</span>
+                            <button type="button" id="r_sub" class="btn btn-info">Submit Resume</button>
+                        </label>
+                    </form>
+                </div>
+                </div>
+            </div>
+            <div class="col-lg-4 order-lg-1 text-center">
+                <img src="//placehold.it/150" width="150" height="150" id="user_profile_picture" alt="avatar">
+                <h6 class="mt-2">Upload a different photo</h6>
+                **JPEG/PNG Format only, max size 1mb
+                <label class="custom-file">
+                    <form method="post" class="s_photo" id="s_photo_update">
+                    <input type="file" class="profile_user_photo_left" id="photo" name="profile_avatar" accept="image/png,image/jpg, image/jpeg" style="display:none">
+                        <input type="hidden" id="device" class="form-control" name="login_device" value="web" required style="display: none;">
+                    <span class="custom-file-control btn btn-light">Choose file</span>
+                    <button type="button" id="p_sub" class="btn btn-info">Submit Photo</button>
+                </form>
+                </label>
+            </div>
+        </div>
+    </div>
+
+<link rel="stylesheet" href="http://pccoetnp.epizy.com/css/loader.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="crossorigin="anonymous"></script>
+<script>
+    function getCookie(name) {
+        var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+        return v ? v[2] : null;
+    }
+    var cookie_token= getCookie("login_cookies");
+    if(cookie_token === undefined || cookie_token === null || cookie_token.length<10){
+        window.location.href="http://pccoetnp.epizy.com/";
+    }
+</script>
+<script src="script/logout.js"></script>
+<script src="script/profile.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+</body>
+</html>

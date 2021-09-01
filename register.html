@@ -1,0 +1,179 @@
+<!------ Include the above in your HEAD tag ---------->
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="icon" href="Favicon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <title>PCCOE TnP</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
+        <div class="container">
+           <img class="img-fluid" style="max-width: 85px;" src="image/pccoe_logo.png"> <a class="navbar-brand" href="#">PCCOE</a>
+           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class='fas fa-user'></i>&nbsp Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.html"><i class='fas fa-user-plus'></i>&nbsp Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+<main class="login-form">
+    <div class="cotainer">
+        <div id="loading">
+         <img id="loading-image" src="image/spinner.gif" alt="Loading..." />
+    </div>  
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Register</div>
+                    <div class="card-body">
+
+                        <form name='register' id="register" method="post">
+
+                            <div class="form-group row">
+                                <label for="dropdown" class="col-md-4 col-form-label text-md-right">Select Account Type</label>
+                                <div class="col-md-6">
+                                    <select class="browser-default custom-select" name="mem_type" id="mem_type" onchange="getOption();" required>
+                                        <option value="">Select Your Account Type</option>
+                                        <option value="s_pccoe">Student of PCCOE</option>
+                                        <option value="s_other">Not a Student of PCCOE</option>
+                                      </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row" id="s_scno">
+                                <label for="scholarnumber" class="col-md-4 col-form-label text-md-right">PCCOE Scholar Number</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="s_scholar" class="form-control" name="s_scholar" placeholder="Scholar Number" disabled>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
+                                <div class="col-md-6">
+                                    <input type="email" id="email_address" class="form-control" name="reg_email" placeholder="E-mail Address" required autofocus>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+                                <div class="col-md-6">
+                                    <input type="password" id="password" class="form-control" name="reg_pass"placeholder="Password" required onfocus="pas();">
+                                    <p id="er7" style="display: none; font-size: 0.8em; color: red;">
+                                        **Password should have uppercase, lowercase, numbers and special characters.(min length 8)
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="password" class="col-md-4 col-form-label text-md-right">Confirm Password</label>
+                                <div class="col-md-6">
+                                    <input type="password" id="cpassword" class="form-control" name="reg_cpass" placeholder="Confirm Password" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="gender" class="col-md-4 col-form-label text-md-right">Gender</label>
+                               
+                                <div class="col-md-6">
+                                    <input type="radio" class="form-check-inline" id="radio1" name="gender" value="Male">Male
+                                    <input type="radio" class="form-check-inline" id="radio2" name="gender" value="Female">Female
+                                </div>
+                                </div>
+                            <div class="form-group row">
+                                    <label for="dob" class="col-md-4 col-form-label text-md-right">Date of Birth</label>
+                                    <div class="col-md-6">
+                                        <input type="date" class="form-check-inline" id="dob_date" name="dob_date" max="2002-01-01" required>
+                                    </div>
+                            </div>
+                            <div class="form-group row">
+                                    <label for="phone" class="col-md-4 col-form-label text-md-right">Mobile No.</label>
+                                    <div class="col-md-6">
+                                        <input type="number" step="0.01" maxlength="10" id="mobileno" class="form-control" name="mobilenumber" placeholder="Mobile Number" required>
+                                    </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-md-6 offset-md-4">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-6 offset-md-4">
+                                    <div class="checkbox">
+                                        <label>
+                                            For any help with registration please click <a href="#"target="popup" 
+                                            onclick="window.open('terms.html','popup','width=600,height=600'); return false;">here.</a>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 offset-md-4">
+                                <button id="r_submit" type="button" class="btn btn-primary">
+                                    Register
+                                </button>
+                            </div>
+                    </div>
+                    <div class="col-md-12" style="color: red; font-weight: bold; font-size: 12px; line-height: 2px; margin-left: 10%;">
+                        <p id="er1" style="display: none;">
+                            **Invalid Email Format.
+                        </p>
+                        <p id="er2" style="display: none;">
+                            **Password should have uppercase, lowercase, numbers and special characters.
+                        </p>
+                        <p id="er3" style="display: none;">
+                            **Confirm Password does not match.
+                        </p>
+                        <p id="er4" style="display: none;">
+                            **Invalid Mobile Number (Mobile No. must be of 10 digits).
+                        </p>
+                        <p id="er5" style="display: none;">
+                            **Please Select Gender.
+                        </p>
+                        <p id="er6" style="display: none;">
+                            **Please Select Account Type.
+                        </p>
+                        </div>  
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+</main>
+<link rel="stylesheet" href="http://pccoetnp.epizy.com/css/loader.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="crossorigin="anonymous"></script>
+<script src="script/register.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+
+
+</body>
+</html>
